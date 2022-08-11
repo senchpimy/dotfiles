@@ -10,7 +10,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # Set name of the theme to load --- if set to "random", it will
@@ -112,8 +111,8 @@ source $ZSH/oh-my-zsh.sh
 #
 alias status="git status"
 
-alias push="git push -u origin main"
-#
+alias fpush="git push -u origin main"
+
 alias tk="xclip -sel clip githubTokem && echo Copiado!"
 
 alias push="tk && git push"
@@ -131,3 +130,37 @@ alias docesc='f(){ pandoc "$1" \
     -o "$2"};f '
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+##//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#alias ide='tmux split-window -h -p 30 ; tmux split-window -v -p 75 ; tmux last-pane ; nvim'
+#
+#function killAllUnnameTmuxSession() {
+#  echo "\n👉 kill all unname tmux session"
+#  cd /tmp/
+#  tmux ls | awk '{print $1}' | grep -o '[0-9]\+' >/tmp/killAllUnnameTmuxSessionOutput.sh
+#  sed -i 's/^/tmux kill-session -t /' killAllUnnameTmuxSessionOutput.sh
+#  chmod +x killAllUnnameTmuxSessionOutput.sh
+#  ./killAllUnnameTmuxSessionOutput.sh
+#  cd -
+#  tmux ls
+#}
+#
+#function killAllUnnameTmuxSessionNoMessage() {
+#  cd /tmp/
+#  tmux ls | awk '{print $1}' | grep -o '[0-9]\+' >/tmp/killAllUnnameTmuxSessionOutput.sh
+#  sed -i 's/^/tmux kill-session -t /' killAllUnnameTmuxSessionOutput.sh
+#  chmod +x killAllUnnameTmuxSessionOutput.sh
+#  ./killAllUnnameTmuxSessionOutput.sh
+#  cd -
+#}
+#
+#alias clear='killAllUnnameTmuxSessionNoMessage ; clear -x'
+#alias cler='clear'
+#alias clea='clear'
+#alias cl='clear'
+#
+#function tmuxSessionSwitch() {
+#  local session
+#  session=$(tmux list-sessions -F "#{session_name}" | fzfDown)
+#  tmux switch-client -t "$session"
+#}
+#alias af='tmuxSessionSwitch'
