@@ -117,6 +117,8 @@ alias tk="xclip -sel clip githubTokem && echo Copiado!"
 
 alias push="tk && git push"
 
+alias ytdl="youtube-dl"
+
 alias v="nvim"
 
 alias commit='git add -A; git commit -m'
