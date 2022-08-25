@@ -111,24 +111,23 @@ source $ZSH/oh-my-zsh.sh
 #
 alias status="git status"
 
-alias fpush="git push -u origin main"
+alias ytdl="youtube-dl"
 
+alias push="git push -u origin main"
+#
 alias tk="xclip -sel clip githubTokem && echo Copiado!"
 
 alias push="tk && git push"
-
-alias ytdl="youtube-dl"
 
 alias v="nvim"
 
 alias commit='git add -A; git commit -m'
 
-alias docesc='f(){ pandoc "$1" \
-    -f gfm \
+alias doc='f(){ pandoc "$1" \
     -V linkcolor:blue \
     -V geometry:a4paper \
     -V geometry:margin=2cm \
-    --pdf-engine=xelatex \
+    -t ms \
     -o "$2"};f '
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
