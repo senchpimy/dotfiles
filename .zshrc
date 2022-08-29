@@ -129,6 +129,10 @@ alias doc='f(){ pandoc "$1" \
     -V geometry:margin=2cm \
     -t ms \
     -o "$2"};f '
+
+alias lf='lfrun'
+
+alias grodoc='f(){ groff -ms "$1" -T pdf >> "$2"}'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 ##//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
