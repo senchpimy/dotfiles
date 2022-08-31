@@ -130,6 +130,8 @@ alias doc='f(){ pandoc "$1" \
     -t ms \
     -o "$2"};f '
 
+alias pac='sudo pacman'
+
 alias lf='lfrun'
 
 alias grodoc='f(){ groff -ms "$1" -T pdf >> "$2"}'
