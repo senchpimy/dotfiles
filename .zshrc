@@ -121,7 +121,11 @@ alias push="tk && git push"
 
 alias v="nvim"
 
-alias commit='git add -A; git commit -m'
+alias gca='git add -A; git commit -m'
+
+alias gc='git commit -m'
+
+alias ga='git add'
 
 alias doc='f(){ pandoc "$1" \
     -V linkcolor:blue \
