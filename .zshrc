@@ -1,6 +1,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="nvim"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 #
@@ -152,9 +153,6 @@ alias grodoc='f(){ groff -ms "$1" -T pdf >> "$2"}'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export LF_ICONS="\
-*.jpg=nigga
-	"
 ##//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #alias ide='tmux split-window -h -p 30 ; tmux split-window -v -p 75 ; tmux last-pane ; nvim'
 #
