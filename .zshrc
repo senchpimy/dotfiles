@@ -121,6 +121,7 @@ bindkey '^e' edit-command-line
 alias status="git status"
 
 alias ytdl="youtube-dl"
+alias ytdl-m="youtube-dl -x --audio-format mp3 "
 
 alias push="git push -u origin main"
 #
