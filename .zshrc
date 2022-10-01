@@ -138,6 +138,8 @@ alias gc='git commit -m'
 
 alias ga='git add'
 
+alias gu='git add -u'
+
 alias doc='f(){ pandoc "$1" \
     -V linkcolor:blue \
     -V geometry:a4paper \
