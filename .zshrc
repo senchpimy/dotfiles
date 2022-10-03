@@ -118,8 +118,6 @@ bindkey '^e' edit-command-line
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #
-alias status="git status"
-
 alias ytdl="youtube-dl"
 alias ytdl-m="youtube-dl -x --audio-format mp3 "
 
@@ -140,6 +138,10 @@ alias gc='git commit -m'
 alias ga='git add'
 
 alias gu='git add -u'
+
+alias gs='git status'
+
+alias gr='git restore'
 
 alias doc='f(){ pandoc "$1" \
     -V linkcolor:blue \
