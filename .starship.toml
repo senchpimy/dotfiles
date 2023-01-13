@@ -36,6 +36,7 @@ deleted="✘ ${count} "
 modified="!${count} "
 staged="+${count} "
 ahead="⇡${count}"
+untracked="?${count}"
 format = "[ $all_status$ahead_behind ]($style)[ ](orange bg:green )"
 up_to_date = '✓'
 
