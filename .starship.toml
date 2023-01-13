@@ -1,7 +1,5 @@
-format = '''[░▒▓█](red)[$os$username $sudo](bg:red black)[](red bg:blue)$directory[](blue bg:orange)$git_status$status$cmd_duration[](green)'''
-
+format = '[░▒▓█](red)[$os$username $sudo](bg:red black)[](red bg:blue)$custom[](blue bg:orange)$git_status$status$cmd_duration[](green)'
 right_format = """$character$time"""
-
 
 #    bold
 #    italic
@@ -31,12 +29,6 @@ green="#047e84"
 success_symbol = '[➜](bold green)'
 error_symbol = '[✗](bold red) '
 
-[directory]
-truncation_length=3
-truncation_symbol="..."
-truncate_to_repo=false
-style="bg:blue bold"
-format='[ $path ]($style)[$read_only]($read_only_style)'
 
 [git_status]
 style="bg:orange black"
@@ -80,3 +72,9 @@ format="$symbol"
 [os.symbols]
 Linux=" "
 
+
+[custom.dir]
+command = 'Dirpath' 
+when = true
+format = '[$output]($style)'
+style="bg:blue bold"
