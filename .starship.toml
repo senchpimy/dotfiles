@@ -1,4 +1,4 @@
-format = '[░▒▓█](red)[$os$username $sudo](bg:red black)[](red bg:blue)$custom[](blue bg:orange)$git_status$status$cmd_duration[](green)'
+format = '[░▒▓█](red)[$os$username $sudo](bg:red black)[](red bg:blue)$custom$git_status$status$cmd_duration[](green)'
 right_format = """$character$time"""
 
 #    bold
@@ -76,5 +76,5 @@ Linux=" "
 [custom.dir]
 command = 'Dirpath' 
 when = true
-format = '[$output]($style)'
+format = '[$output]($style)[](blue bg:orange)'
 style="bg:blue bold"
