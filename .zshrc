@@ -1,95 +1,58 @@
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
+export STARSHIP_CONFIG="/home/plof/.starship.toml"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-#
+autoload -U colors && colors
+alias ls="ls --color=auto" 
+alias diff='diff --color'
+
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
-_comp_options+=(globdots)
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 COMPLETION_WAITING_DOTS="%F{yellow}...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+eval "$(dircolors)"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 #&&&&&&&&&&&&&&&&& VI-MODE &&&&&&&&&&&&&&&&&&&&&&&&&&
 #plugins=(vi-mode)
-bindkey -v
-export KEYTIMEOUT=1
-
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+#bindkey -v
+#export KEYTIMEOUT=1
+#
+#function zle-keymap-select {
+#  if [[ ${KEYMAP} == vicmd ]] ||
+#     [[ $1 = 'block' ]]; then
+#    echo -ne '\e[1 q'
+#  elif [[ ${KEYMAP} == main ]] ||
+#       [[ ${KEYMAP} == viins ]] ||
+#       [[ ${KEYMAP} = '' ]] ||
+#       [[ $1 = 'beam' ]]; then
+#    echo -ne '\e[5 q'
+#  fi
+#}
+#zle -N zle-keymap-select
+#zle-line-init() {
+#    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+#    echo -ne "\e[5 q"
+#}
+#zle -N zle-line-init
+#echo -ne '\e[5 q' # Use beam shape cursor on startup.
+#preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 #&&&&&&&&&&&&&&&&& SWITCH DIRS &&&&&&&&&&&&&&&&&&&&&&&&&&
 #ctr-o
@@ -106,7 +69,7 @@ bindkey -s '^o' 'lfcd\n'
 
 #&&&&&&&&&&&&&&&&& Edit Line &&&&&&&&&&&&&&&&&&&&&&&&&&
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey  '^e' edit-command-line
 
 #&&&&&&&&&&&&&&&&& ALIAS &&&&&&&&&&&&&&&&&&&&&&&&&&
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -143,14 +106,11 @@ alias gs='git status'
 
 alias gr='git restore'
 
-alias doc='f(){ pandoc "$1" \
-    -V linkcolor:blue \
-    -V geometry:a4paper \
-    -V geometry:margin=2cm \
-    -t ms \
-    -o "$2"};f '
+alias gd='git diff'
 
 alias pac='sudo pacman'
+
+alias setMON='xrandr --output VGA1 --mode 1024x768 --right-of eDP1'
 
 alias lf='lfrun'
 
@@ -194,3 +154,4 @@ alias grodoc='f(){ groff -ms "$1" -T pdf >> "$2"}'
 #alias af='tmuxSessionSwitch'
 #source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+eval "$(starship init zsh)"
