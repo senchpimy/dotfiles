@@ -1,4 +1,4 @@
-format = '[░▒▓█](red)[$os$username $sudo](bg:red black)[](red bg:blue)$custom$git_status$status$cmd_duration[](green)'
+format = '[░▒▓█](red)[$os$username](bg:red black)[](red bg:blue)$custom$git_status$status$cmd_duration[](green)'
 right_format = """$character$time"""
 
 #    bold
@@ -48,11 +48,6 @@ format = '[$symbol$common_meaning$signal_name$maybe_int]($style)'
 map_symbol = true
 disabled = false
 
-[sudo]
-symbol = ''
-disabled = false
-format="as $symbol "
-
 [time]
 disabled = false
 time_format = "%H:%M"
@@ -65,7 +60,7 @@ show_always = true
 
 [cmd_duration]
 style = 'bg:green blink pur bold'
-format="[$duration]($style)"
+format="[ $duration]($style)"
 
 [os]
 disabled=false
