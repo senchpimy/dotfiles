@@ -6,6 +6,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 autoload -U colors && colors
 alias ls="ls --color=auto" 
 alias diff='diff --color'
+alias eclipse="GTK_THEME=Adwaita eclipse"
+export JAVA_HOME=/usr/lib/jvm/java-19-openjdk
+
 export PS1="$(pwd)$ "
 
 # Basic auto/tab complete:
@@ -26,7 +29,8 @@ COMPLETION_WAITING_DOTS="%F{yellow}...%f"
 # COMPLETION_WAITING_DOTS="true"
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-eval "$(dircolors)"
+#eval "$(dircolors)"
+export LS_COLORS='*.go=01;44:*.rs=01;43'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 
