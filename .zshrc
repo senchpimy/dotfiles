@@ -6,6 +6,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 autoload -U colors && colors
 alias ls="ls --color=auto" 
 alias diff='diff --color'
+alias tareas='glow /home/plof/Documents/2do-semestre-Fes/2doSemestre/Tareas.md'
+alias inicio='setMON && feh --bg-scale ~/Videos/bean.jpg && blueman-applet && setsid dwmblocks && xrandr --output VGA1 --brightness 0.5 && xrandr --output eDP1 --brightness 0.7'
 alias eclipse="GTK_THEME=Adwaita eclipse"
 export JAVA_HOME=/usr/lib/jvm/java-19-openjdk
 
