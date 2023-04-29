@@ -7,7 +7,7 @@ autoload -U colors && colors
 alias ls="ls --color=auto" 
 alias diff='diff --color'
 alias tareas='glow /home/plof/Documents/2do-semestre-Fes/2doSemestre/Tareas.md'
-alias inicio='setsid blueman-applet && setsid dwmblocks && xrandr --output eDP1 --brightness 0.7 && xrandr --output VGA1 --brightness 0.5 && setMON && feh --bg-scale ~/Pictures/wallPaper'
+alias inicio='setsid blueman-applet && setsid dwmblocks && xrandr --output eDP1 --brightness 0.6 && xrandr --output VGA1 --brightness 0.4 && setMON && feh --bg-scale ~/Pictures/wallPaper $$ xrdb ~/.resoucersX'
 alias eclipse="GTK_THEME=Adwaita eclipse"
 export JAVA_HOME=/usr/lib/jvm/java-19-openjdk
 
