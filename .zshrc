@@ -1,15 +1,16 @@
 
 # Path to your oh-my-zsh installation.
-export EDITOR="nvim"
+export EDITOR="lvim"
 export STARSHIP_CONFIG="/home/plof/.starship.toml"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -U colors && colors
 alias ls="ls --color=auto" 
+alias cat="bat" 
 alias diff='diff --color'
-alias tareas='glow /home/plof/Documents/2do-semestre-Fes/2doSemestre/Tareas.md'
 alias inicio='setsid blueman-applet && setsid dwmblocks && xrandr --output eDP1 --brightness 0.6 && xrandr --output VGA1 --brightness 0.4 && setMON && feh --bg-scale ~/Pictures/wallPaper && xrdb ~/.Xresources'
-alias eclipse="GTK_THEME=Adwaita eclipse"
 export JAVA_HOME=/usr/lib/jvm/java-19-openjdk
+alias record_screen="ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :0.0+100,200 output.mp4"
+export PATH=/home/plof/.local/bin:$PATH
 
 export PS1="$(pwd)$ "
 
@@ -97,7 +98,7 @@ alias tk="xclip -sel clip githubTokem && echo Copiado!"
 
 alias push="tk && git push"
 
-alias v="nvim"
+alias v="lvim"
 
 alias gca='git add -A; git commit -m'
 
@@ -122,6 +123,8 @@ alias setMON='xrandr --output VGA1 --mode 1024x768 --right-of eDP1'
 alias lf='lfrun'
 
 alias grodoc='f(){ groff -ms "$1" -T pdf >> "$2"}'
+
+alias vmrss='f() { while true; do cat /proc/$1/status | grep "VmRSS"; sleep 1; done};f'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
